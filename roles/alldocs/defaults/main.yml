@@ -60,7 +60,6 @@ alldocs_repolist:
   - ansible-seafile
   - ansible-sqlite
   - ansible-superset
-  - ansible-template
   - ansible-tensorflow
   - ansible-wordpress
   - ansible-zabbix
