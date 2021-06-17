@@ -1,25 +1,25 @@
 # FAQ
 
-#### RabbitMQ 是否支持多语言？
+#### Alldocs 是否支持多语言？
 
 支持
 
-#### 本项目中 RabbitMQ 采用何种安装方式？
+#### 本项目中 Alldocs 采用何种安装方式？
 
 采用 rpm/deb 包的安装方式
 
 #### 如何以调试模式启动RabbitMQ服务？
 
 ```
-systemctl stop rabbitmq-server
-rabbitmq-server console
+systemctl stop alldocs-server
+alldocs-server console
 ```
 
 #### 是否可以通过命令行修改RabbitMQ后台密码？
 
 可以，`rabbitmqctl change_password  admin newpassword`
 
-#### 如果没有域名是否可以部署 RabbitMQ？
+#### 如果没有域名是否可以部署 Alldocs？
 
 可以，访问`http://服务器公网IP` 即可
 

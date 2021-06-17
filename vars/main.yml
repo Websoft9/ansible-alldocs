@@ -19,12 +19,12 @@ docker_applications:
 
 # add databases and users
 mysql_databases:
- - name: rabbitmq
+ - name: alldocs
  
 mysql_users:
- - name: rabbitmq
+ - name: alldocs
    host: localhost
-   priv: 'rabbitmq.*:ALL'
+   priv: 'alldocs.*:ALL'
 
 # init passsword of database
 init_db: 
@@ -35,11 +35,11 @@ init_db:
   
 # init password of applications
 init_application:
-  rabbitmq:
-    service: rabbitmq
-    database: rabbitmq 
-    database_user: rabbitmq
+  alldocs:
+    service: alldocs
+    database: alldocs 
+    database_user: alldocs
     database_host: localhost
     database_password: "123456"
     config_path:
-      - /opt/rabbitmq/config/config.json
+      - /opt/alldocs/config/config.json

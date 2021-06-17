@@ -1,8 +1,8 @@
-# RabbitMQ Notes
+# Alldocs Notes
 
-组件名称：RabbitMQ-Server  
-安装文档：https://www.rabbitmq.com/download.html  
-配置文档：https://www.rabbitmq.com/admin-guide.html  
+组件名称：Alldocs-Server  
+安装文档：https://www.alldocs.com/download.html  
+配置文档：https://www.alldocs.com/admin-guide.html  
 支持平台： Debian家族 | RHEL家族 | Windows | Kubernetes |Docker  
 
 责任人：helin
@@ -30,23 +30,23 @@ RabbitMQ是一款开源的MQ系统，它包含RabbitMQ-Server和RabbitMQ-Client�
 
 ```shell
 # 分别安装erlang源和rabbitmq-server源
-curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
+curl -s https://packagecloud.io/install/repositories/alldocs/erlang/script.rpm.sh | sudo bash
+curl -s https://packagecloud.io/install/repositories/alldocs/alldocs-server/script.rpm.sh | sudo bash
 
 # 安装
-yum install erlang rabbitmq-server -y
+yum install erlang alldocs-server -y
 ```
 
 ### Ubuntu
 
 ```shell
 # 分别安装erlang源和rabbitmq-server源
-curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.deb.sh | sudo bash
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | sudo bash
+curl -s https://packagecloud.io/install/repositories/alldocs/erlang/script.deb.sh | sudo bash
+curl -s https://packagecloud.io/install/repositories/alldocs/alldocs-server/script.deb.sh | sudo bash
 
 # 安装
 sudo apt-get update -y
-apt install erlang rabbitmq-server -y
+apt install erlang alldocs-server -y
 ```
 
 ## 配置
@@ -54,14 +54,14 @@ apt install erlang rabbitmq-server -y
 安装完成后，需要依次完成如下配置
 
 ```shell
-# Set RabbitMQ
-- name: Restart RabbitMQ
-  shell: systemctl start rabbitmq-server
+# Set Alldocs
+- name: Restart Alldocs
+  shell: systemctl start alldocs-server
 
-- name: Enable the management console of RabbitMQ
-  shell: rabbitmq-plugins enable rabbitmq_management
+- name: Enable the management console of Alldocs
+  shell: alldocs-plugins enable rabbitmq_management
 
-- name: Create administrator for RabbitMQ console
+- name: Create administrator for Alldocs console
   shell: |
     rabbitmqctl add_user admin admin
     rabbitmqctl set_user_tags admin administrator
@@ -69,8 +69,8 @@ apt install erlang rabbitmq-server -y
 
 ## 路径
 
-* 程序路径：/usr/lib/rabbitmq/lib/rabbitmq_server-*
-* 日志路径：/var/log/rabbitmq  
+* 程序路径：/usr/lib/alldocs/lib/rabbitmq_server-*
+* 日志路径：/var/log/alldocs  
 * 配置文件路径：  
 * 其他...
 
@@ -94,7 +94,7 @@ apt install erlang rabbitmq-server -y
 
 ## 服务
 
-本项目安装后自动生成：rabbitmq-server 服务
+本项目安装后自动生成：alldocs-server 服务
 
 备注：如果开机没有服务，程序无法运行的情况下，需要自行编写服务后存放到项目中
 
@@ -125,8 +125,8 @@ WantedBy=multi-user.target
 通过如下的命令获取主要组件的版本号: 
 
 ```
-# Check RabbitMQ version
-sudo rabbitmqctl status | grep RabbitMQ*
+# Check Alldocs version
+sudo rabbitmqctl status | grep Alldocs*
 
 # Check Erlang version
 ls /usr/lib64/erlang
@@ -152,4 +152,4 @@ ls /usr/lib64/erlang
 
 #### 安装后是否需要创建普通用户？
 
-有，rabbitmq
+有，alldocs

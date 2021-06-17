@@ -4,21 +4,21 @@ sidebarDepth: 3
 
 # 参数
 
-RabbitMQ 预装包包含 RabbitMQ 运行所需一序列支撑软件（简称为“组件”），下面列出主要组件名称、安装路径、配置文件地址、端口、版本等重要的信息。
+Alldocs 预装包包含 Alldocs 运行所需一序列支撑软件（简称为“组件”），下面列出主要组件名称、安装路径、配置文件地址、端口、版本等重要的信息。
 
 ## 路径
 
-本部署方案中的 RabbitMQ 采用 Docker 部署，运行 `docker ps` 查看运行的容器。
+本部署方案中的 Alldocs 采用 Docker 部署，运行 `docker ps` 查看运行的容器。
 ```
 CONTAINER ID   IMAGE                           COMMAND                  CREATED              STATUS                PORTS                               NAMES
-4ff55aec7671   rabbitmq                         "/docker-entrypoint.…"   11 seconds ago       Up 10 seconds         0.0.0.0:9010->3000/tcp              rabbitmq
-3067c535663b   mysql:5.7                       "docker-entrypoint.s…"   About a minute ago   Up 58 seconds         33060/tcp, 0.0.0.0:3309->3306/tcp   rabbitmq-mysql
+4ff55aec7671   alldocs                         "/docker-entrypoint.…"   11 seconds ago       Up 10 seconds         0.0.0.0:9010->3000/tcp              alldocs
+3067c535663b   mysql:5.7                       "docker-entrypoint.s…"   About a minute ago   Up 58 seconds         33060/tcp, 0.0.0.0:3309->3306/tcp   alldocs-mysql
 ```
 
-### RabbitMQ
+### Alldocs
 
-RabbitMQ 安装目录： */data/rabbitmq*  
-RabbitMQ 日志目录： */data/logs/rabbitmq*  
+Alldocs 安装目录： */data/alldocs*  
+Alldocs 日志目录： */data/logs/alldocs*  
 
 ### Apache
 
@@ -83,7 +83,7 @@ Redis 日志文件： */var/log/redis/redis.log*
 
 | 名称 | 端口号 | 用途 |  必要性 |
 | --- | --- | --- | --- |
-| TCP | 15672 | 通过 HTTP 访问 RabbitMQ 控制台 | 可选 |
+| TCP | 15672 | 通过 HTTP 访问 Alldocs 控制台 | 可选 |
 | TCP | 5672 | epmd | 可选 |
 | TCP | 55672 | Erlang distribution | 可选 |
 
@@ -108,12 +108,12 @@ java -v
 docker -v
 
 # MySQL version
-docker inspect rabbitmq-mysql | grep "MYSQL_VERSION"
+docker inspect alldocs-mysql | grep "MYSQL_VERSION"
 
 # erlang  Version
 yum info erlang
 apt show erlang
 
-# RabbitMQ version
-rabbitmqctl status | grep RabbitMQ*
+# Alldocs version
+rabbitmqctl status | grep Alldocs*
 ```

@@ -1,17 +1,17 @@
 # Start or Stop the Services
 
-These commands are required when you use the RabbitMQ of Websoft9.
+These commands are required when you use the Alldocs of Websoft9.
 
-### RabbitMQ
+### Alldocs
 
 ```shell
-sudo systemctl start rabbitmq-server
-sudo systemctl stop rabbitmq-server
-sudo systemctl restart rabbitmq-server
-sudo systemctl status rabbitmq-server
+sudo systemctl start alldocs-server
+sudo systemctl stop alldocs-server
+sudo systemctl restart alldocs-server
+sudo systemctl status alldocs-server
 
-# you can use this debug mode if RabbitMQ service can't run
-rabbitmq-server console
+# you can use this debug mode if Alldocs service can't run
+alldocs-server console
 ```
 
 ### MySQL
