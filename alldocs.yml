@@ -32,7 +32,7 @@
   roles:
     - {role: role_common, tags: "role_common"}  
     - {role: role_cloud, tags: "role_cloud"}  
-    - {role: role_jdk, tags: "role_nodejs"}  
+    - {role: role_nodejs, tags: "role_nodejs"}  
     - {role: alldocs, tags: "alldocs"}
     - {role: role_preend, tags: "preend"}
     - {role: role_end, tags: "role_end"}
