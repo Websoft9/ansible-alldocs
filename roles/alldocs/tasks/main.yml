@@ -11,12 +11,16 @@
     chdir: /data
 
 - name: Clone all  Repositories of ansible
-  shell: git clone https://github.com/Websoft9/{{item}}.git
+  shell: | 
+   git clone https://github.com/Websoft9/{{item}}.git
+   cd /data/{{item}}/docs
+   vuepress build
+   cp -R /data/{{item}}/docs/html/{{item}} /data/docs/
   register: gitclone_result
   failed_when: False
   loop: "{{ alldocs_repolist }}" 
   args:
-    chdir: /data/docs
-
+    chdir: /data
+    
 - debug: 
     msg: "{{ gitclone_result | json_query('results[*].results[*]') }}"

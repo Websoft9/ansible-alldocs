@@ -10,24 +10,6 @@
   vars_files:
     - vars/main.yml
   
-  vars_prompt:
-    - name: 'rabbitmq_selection'
-      prompt: "Choose the Alldocs distribution \n
-      1: Alldocs 5 Classic\n
-      2: Alldocs Artemis\n"
-      private: no
-      default: 1
-
-  vars:
-    rabbitmq_select:
-      '1': "classic"
-      '2': "artemis"
-
-    rabbitmq_distribution: "{{rabbitmq_select[rabbitmq_selection]}}"
-  
-  pre_tasks:
-    - debug:
-        msg: Will install {{rabbitmq_distribution}}
 
   roles:
     - {role: role_common, tags: "role_common"}  
